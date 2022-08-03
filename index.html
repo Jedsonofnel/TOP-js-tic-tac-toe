@@ -35,18 +35,47 @@
 
         <form action="/" method="POST" id="player_1_form">
             <label for="player_1_name">Player One:</label>
-            <input type="text" id="player_1_name" name="player_1_name" />
             <button type="submit">
                 <span class="material-symbols-outlined">edit</span>
             </button>
+            <input type="text" id="player_1_name" name="player_1_name" />
+            <p id="player_1_score" class="score">[0]</p>
         </form>
 
         <form action="/" method="POST" id="player_2_form">
             <label for="player_2_name">Player Two:</label>
-            <input type="text" id="player_2_name" name="player_2_name" />
             <button type="submit" aria-label="submit">
                 <span class="material-symbols-outlined">edit</span>
             </button>
+            <input type="text" id="player_2_name" name="player_2_name" />
+            <p id="player_2_score" class="score">[0]</p>
         </form>
+
+        <h2>Rules~</h2>
+
+        <p>
+            Everyone knows the rules of tic-tac-toe, but in case you didn't,
+            here is a handy excerpt from wikipedia:
+        </p>
+        <blockquote>
+            "Tic-tac-toe (American English), noughts and crosses (Commonwealth
+            English), or Xs and Os (Irish English) is a paper-and-pencil game
+            for two players who take turns marking the spaces in a
+            three-by-three grid with X or O. The player who succeeds in placing
+            three of their marks in a horizontal, vertical, or diagonal row is
+            the winner." (<a href="https://en.wikipedia.org/wiki/Tic-tac-toe"
+                >https://en.wikipedia.org/wiki/Tic-tac-toe</a
+            >)
+        </blockquote>
+        <p>
+            A couple of other important bits and pieces, however are that
+            <em>player one</em> is "X" and always starts, so subsequently
+            <em>player two</em> goes second and places "O"s. We have decided to
+            adopt Premier League-esque rules for scoring, however, so if you win
+            you get three points, if you lose you get zero, and if you draw you
+            both get one point. Best of 300 games officially is the cooler
+            person so this game can (and has) been used to settle major
+            international disputes. We hope you enjoy.
+        </p>
     </body>
 </html>

@@ -52,8 +52,15 @@ const Player = (playerNumber, playerMarker) => {
     const getScore = () => {
         return score
     }
-    const bumpScore = () => {
-        score++
+    const bumpScoreWin = () => {
+        score += 3
+        const scoreCounter = document.getElementById(`player_${number}_score`)
+        scoreCounter.textContent = `[${score}]`
+    }
+    const bumpScoreDraw = () => {
+        score += 1
+        const scoreCounter = document.getElementById(`player_${number}_score`)
+        scoreCounter.textContent = `[${score}]`
     }
 
     return {
@@ -201,10 +208,14 @@ const gameController = (() => {
 
             if (status == "win") {
                 message(`${currentPlayer.getName()} wins!`)
-                currentPlayer.bumpScore()
+                currentPlayer.bumpScoreWin()
             }
 
-            if (status == "draw") message("Draw!")
+            if (status == "draw") {
+                message("Draw!")
+                player1.bumpScoreDraw()
+                player2.bumpScoreDraw()
+            }
 
             abort.abort()
         }

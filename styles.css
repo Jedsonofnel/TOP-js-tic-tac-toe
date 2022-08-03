@@ -108,6 +108,12 @@ h2 {
     font-weight: bold;
 }
 
+p,
+blockquote {
+    font-family: var(--serif);
+    font-size: 16px;
+}
+
 form {
     display: flex;
     align-items: center;
@@ -123,7 +129,6 @@ input {
     font-size: 16px;
     border: none;
     width: 100px;
-    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -140,7 +145,6 @@ button[type="submit"] {
     background-color: white;
     border: none;
     border-radius: 50%;
-    margin: 5px;
     width: 30px;
     height: 30px;
 }
@@ -163,4 +167,10 @@ button[type="submit"]:hover > span,
 button[type="submit"]:active > span,
 button[type="submit"]:focus > span {
     color: darkgrey;
+}
+
+.score {
+    margin: 0;
+    font-family: var(--sans);
+    font-weight: bold;
 }
