@@ -69,7 +69,8 @@ const Player = (playerNumber, playerMarker) => {
         getName,
         setName,
         getScore,
-        bumpScore,
+        bumpScoreWin,
+        bumpScoreDraw,
     }
 }
 
@@ -134,6 +135,7 @@ const board = (() => {
 const gameController = (() => {
     const player1 = Player(1, "X")
     const player2 = Player(2, "O")
+    let gameCount = 0
 
     // links the player name forms to the player variables for use in
     // dialogue to make it personalised etc...
@@ -183,10 +185,24 @@ const gameController = (() => {
         messageDiv.classList.remove("invisible")
         messageDiv.classList.add("message-animate")
 
-        messageDiv.addEventListener("animationend", () => {
-            messageDiv.classList.add("invisible")
-            messageDiv.classList.remove("message-animate")
-        })
+        const abort = new AbortController()
+        messageDiv.addEventListener(
+            "animationend",
+            () => {
+                messageDiv.classList.add("invisible")
+                messageDiv.classList.remove("message-animate")
+            },
+            { once: true, signal: abort.signal }
+        )
+        messageDiv.addEventListener(
+            "click",
+            () => {
+                messageDiv.classList.add("invisible")
+                messageDiv.classList.remove("message-animate")
+                abort.abort()
+            },
+            { once: true }
+        )
     }
 
     let currentPlayer = player1
@@ -217,6 +233,10 @@ const gameController = (() => {
                 player2.bumpScoreDraw()
             }
 
+            gameCount++
+            document.getElementById(
+                "game-count"
+            ).textContent = `(${gameCount} games played)`
             abort.abort()
         }
     }

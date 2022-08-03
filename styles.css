@@ -64,7 +64,7 @@ body {
 }
 
 .message-animate {
-    animation: disappear 3s forwards ease-out;
+    animation: disappear 5s forwards ease-out;
 }
 
 @keyframes disappear {
@@ -173,4 +173,8 @@ button[type="submit"]:focus > span {
     margin: 0;
     font-family: var(--sans);
     font-weight: bold;
+}
+
+#game-count {
+    font-family: var(--serif);
 }
