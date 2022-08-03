@@ -1,0 +1,30 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* the board */
+.board-container {
+    display: inline-block;
+    background-color: black;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    grid-gap: 5px;
+}
+
+.cell {
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
