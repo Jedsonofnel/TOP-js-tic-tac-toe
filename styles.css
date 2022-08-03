@@ -21,14 +21,18 @@ body {
 
 /* the board */
 .board-container {
-    display: block;
-    background-color: lightgrey;
-    align-self: center;
+    width: 100%;
+    position: relative;
     margin: 25px 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #board {
     display: grid;
+    background-color: lightgrey;
     grid-template-columns: repeat(3, 80px);
     grid-template-rows: repeat(3, 80px);
     grid-gap: 2.5px;
@@ -43,6 +47,38 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#message {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 64px;
+    background-color: white;
+}
+
+.message-animate {
+    animation: disappear 3s forwards ease-out;
+}
+
+@keyframes disappear {
+    from {
+        opacity: 100%;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.invisible {
+    display: none;
 }
 
 #reset {

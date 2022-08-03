@@ -152,7 +152,6 @@ const gameController = (() => {
                 abort.abort()
                 board.resetBoard()
                 beginRound()
-                alert("game reset!")
             },
             { once: true }
         )
@@ -168,6 +167,18 @@ const gameController = (() => {
                 once: true,
                 signal: abort.signal,
             })
+        })
+    }
+
+    const message = (text) => {
+        const messageDiv = document.getElementById("message")
+        messageDiv.textContent = text
+        messageDiv.classList.remove("invisible")
+        messageDiv.classList.add("message-animate")
+
+        messageDiv.addEventListener("animationend", () => {
+            messageDiv.classList.add("invisible")
+            messageDiv.classList.remove("message-animate")
         })
     }
 
@@ -189,11 +200,11 @@ const gameController = (() => {
             }
 
             if (status == "win") {
-                alert(`${currentPlayer.getName()} has just won!`)
+                message(`${currentPlayer.getName()} wins!`)
                 currentPlayer.bumpScore()
             }
 
-            if (status == "draw") alert("Draw! no player wins :(")
+            if (status == "draw") message("Draw!")
 
             abort.abort()
         }
