@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+    --serif: "Lora", serif;
+    --sans: "Karla", sans-serif;
+}
+
 *,
 *:before,
 *:after {
@@ -5,26 +13,118 @@
 }
 
 body {
-    margin: 0;
+    margin: 0 auto;
+    width: min(72ch, 90%);
+    display: flex;
+    flex-direction: column;
 }
 
 /* the board */
 .board-container {
-    display: inline-block;
-    background-color: black;
+    display: block;
+    background-color: lightgrey;
+    align-self: center;
+    margin: 25px 0;
 }
 
 #board {
     display: grid;
     grid-template-columns: repeat(3, 80px);
     grid-template-rows: repeat(3, 80px);
-    grid-gap: 5px;
+    grid-gap: 2.5px;
 }
 
 .cell {
     background-color: white;
+    font-size: 60px;
+    font-family: var(--sans);
+    font-weight: 400;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#reset {
+    align-self: center;
+    border: none;
+    background-color: white;
+    
+    font-family: var(--serif);
+    font-size: 16px;
+}
+
+#reset:hover,
+#reset:active {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* other styling */
+h1 {
+    font-family: var(--serif);
+    font-weight: normal;
+    font-style: italic;
+}
+
+h2 {
+    font-family: var(--sans);
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    font-family: var(--sans);
+    font-size: 18px;
+}
+
+input {
+    font-family: var(--serif);
+    font-size: 16px;
+    border: none;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+input:hover,
+input:active,
+input:focus {
+    text-decoration: underline;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+button[type="submit"] {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+button[type="submit"] > span {
+    position: relative;
+    left: -1px;
+    bottom: -1px;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:active,
+button[type="submit"]:focus {
+    cursor: pointer;
+    background-color: #efefef;
+    outline: none;
+}
+
+button[type="submit"]:hover > span,
+button[type="submit"]:active > span,
+button[type="submit"]:focus > span {
+    color: darkgrey;
 }

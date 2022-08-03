@@ -144,8 +144,25 @@ const gameController = (() => {
         })
     }
 
+    const handleReset = (abort) => {
+        const resetButton = document.getElementById("reset")
+        resetButton.addEventListener(
+            "click",
+            () => {
+                abort.abort()
+                board.resetBoard()
+                beginRound()
+                alert("game reset!")
+            },
+            { once: true }
+        )
+    }
+
     const setupBoard = (abort) => {
         const boardNode = document.getElementById("board")
+        boardNode.childNodes.forEach((cell) => {
+            cell.textContent = ""
+        })
         boardNode.childNodes.forEach((cell) => {
             cell.addEventListener("click", handleSelection(abort), {
                 once: true,
@@ -185,6 +202,7 @@ const gameController = (() => {
     const beginRound = () => {
         const abort = new AbortController()
         setupBoard(abort)
+        handleReset(abort)
     }
 
     const start = () => {
